@@ -1,7 +1,7 @@
-import type { NextPage } from "next"
-import Head from "next/head"
+import type { NextPage } from "next";
+import Head from "next/head";
 
-import { signIn } from "../lib/supabase"
+import { signIn } from "../lib/supabase";
 
 const Home: NextPage = () => {
   return (
@@ -12,9 +12,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <button onClick={signIn}>Sign in with Google</button>
+      <button onClick={signIn} className="p-4 m-4 text-lg bg-red-200">
+        Sign in with Google
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
