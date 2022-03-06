@@ -1,9 +1,12 @@
-import type { NextPage } from "next";
-import Head from "next/head";
+import type { NextPage } from "next"
+import Head from "next/head"
+import { useUser } from "../hooks/use-user"
 
-import { signIn } from "../lib/supabase";
+import { signIn } from "../lib/supabase"
 
 const Home: NextPage = () => {
+  const user = useUser()
+
   return (
     <div>
       <Head>
@@ -12,11 +15,15 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <button onClick={signIn} className="p-4 m-4 text-lg bg-red-200">
-        Sign in with Google
-      </button>
+      {user ? (
+        <div>Welcome {user.user_metadata.name}!</div>
+      ) : (
+        <button onClick={signIn} className="p-4 m-4 text-lg bg-red-200">
+          Sign in with Google
+        </button>
+      )}
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
