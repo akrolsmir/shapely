@@ -10,6 +10,9 @@ export function useUser() {
       if (session?.user) setUser(session?.user)
       else setUser(null)
     })
+
+    setUser(supabase.auth.user())
+
     return data?.unsubscribe
   }, [])
 
