@@ -19,7 +19,7 @@ export function ChipFeedback(props: { size: string }) {
         <Chip text="More Introverted"></Chip>
         <Chip text="More Extroverted"></Chip>
     </div>
-    <button className="border rounded-lg">Submit</button>
+    <button className="border rounded-lg mt-4 p-1">Submit</button>
       </div>
     );
   }
