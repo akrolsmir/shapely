@@ -1,11 +1,12 @@
-import type { NextPage } from "next"
-import Head from "next/head"
-import { useUser } from "../hooks/use-user"
+import type { NextPage } from "next";
+import Head from "next/head";
+import { Likert } from "../components/likert";
+import { useUser } from "../hooks/use-user";
 
-import { signIn } from "../lib/supabase"
+import { signIn } from "../lib/supabase";
 
 const Home: NextPage = () => {
-  const user = useUser()
+  const user = useUser();
 
   return (
     <div>
@@ -22,8 +23,10 @@ const Home: NextPage = () => {
           Sign in with Google
         </button>
       )}
-    </div>
-  )
-}
 
-export default Home
+      <Likert question="Do you really like apples?" />
+    </div>
+  );
+};
+
+export default Home;
