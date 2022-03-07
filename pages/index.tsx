@@ -16,18 +16,20 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {user ? (
-        <div>
-          <p>Welcome {user.user_metadata.name}!</p>
-          <button onClick={signOut} className="p-4 m-4 text-lg bg-red-200">
-            Sign out
+      <div className="mx-auto py-12 text-center">
+        {user ? (
+          <div>
+            <p>Welcome {user.user_metadata.name}!</p>
+            <button className="btn" onClick={signOut}>
+              Sign out
+            </button>
+          </div>
+        ) : (
+          <button className="btn" onClick={signIn}>
+            Sign in with Google
           </button>
-        </div>
-      ) : (
-        <button onClick={signIn} className="p-4 m-4 text-lg bg-red-200">
-          Sign in with Google
-        </button>
-      )}
+        )}
+      </div>
     </BasePage>
   )
 }
