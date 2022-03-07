@@ -1,4 +1,4 @@
-import { CalendarIcon, CogIcon, UsersIcon } from '@heroicons/react/outline'
+import { CalendarIcon, CogIcon, UsersIcon, AdjustmentsIcon } from '@heroicons/react/outline'
 
 // From https://codepen.io/chris__sev/pen/QWGvYbL
 export default function BottomNavBar() {
@@ -22,7 +22,7 @@ export default function BottomNavBar() {
         href="Settings"
         className="block w-full py-2 px-3 text-center hover:bg-indigo-200 hover:text-indigo-700"
       >
-        <CogIcon className="my-1 mx-auto h-6 w-6" aria-hidden="true" />
+        <AdjustmentsIcon className="my-1 mx-auto h-6 w-6" aria-hidden="true" />
       </a>
     </nav>
   )
