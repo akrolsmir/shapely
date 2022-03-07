@@ -12,25 +12,6 @@ function showPosition(position: any) {
   if (!x) return;
   x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
 
-
-  var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + '%2C' + position.coords.longitude + '&language=en';
-  var request = new XMLHttpRequest();
-  request.open('GET', GEOCODING, true);
-
-  request.onload = function() {
-    if (request.status >= 200 && request.status < 400) {
-      // Success!
-      var data = JSON.parse(request.responseText);
-      window.console.log(data)
-      let x = document.getElementById('x');
-      if (!x) return;
-      x.innerHTML = data
-    } else {
-      // We reached our target server, but it returned an error
-      window.console.log('unknown error')
-    }
-  };
-
 }
 
 function SettingRow(props: { children: React.ReactNode }) {

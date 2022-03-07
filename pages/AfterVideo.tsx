@@ -3,7 +3,7 @@ import Head from "next/head"
 import BasePage from '../components/base-page'
 import { ChipFeedback } from "../components/chip-feedback";
 
-export default function  NextDate ()  {
+export default function  AfterVideo ()  {
     let answered = true;
   return (
     <BasePage>
