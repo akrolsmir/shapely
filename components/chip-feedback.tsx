@@ -11,7 +11,7 @@ export function ChipFeedback(props: { size: string }) {
         <Chip text="Outgoing"></Chip>
     </div>
 
-    <div className="text-left ">What would you want to change for the next date?</div>
+    <div className="text-left ">What would you want to change for the next match?</div>
       <input className="h-8 w-full border border-slate-400"/>
     <div className="flex flex-row">
         <Chip text="More Funny"></Chip>
@@ -19,6 +19,7 @@ export function ChipFeedback(props: { size: string }) {
         <Chip text="More Introverted"></Chip>
         <Chip text="More Extroverted"></Chip>
     </div>
+    <button className="border rounded-lg">Submit</button>
       </div>
     );
   }
