@@ -6,10 +6,10 @@ export type User = {
   // Just cram it all into JSON for now
   datablob: {
     // Age, etc
-    initialQuestions: LikertQuestion[]
+    initialQuestions?: LikertQuestion[]
 
-    videoDates: Date[]
-    irlDates: Date[]
+    videoDates?: Date[]
+    irlDates?: Date[]
   }
 }
 
@@ -31,6 +31,8 @@ type Feedback = {
 
 type LikertQuestion = {
   question: string
-  // -2 = Strong Disagree, -1 = Disagree, 0 = Neutral, 1 = Agree, 2 = Strong Agree
-  rating: -2 | -1 | 0 | 1 | 2
+  rating: LikertRating
 }
+
+// -2 = Strong Disagree, -1 = Disagree, 0 = Neutral, 1 = Agree, 2 = Strong Agree
+export type LikertRating = '-2' | '-1' | '0' | '1' | '2'

@@ -1,18 +1,33 @@
-export function Likert(props: { question: string }) {
+import { LikertRating } from '../lib/types'
+
+export function Likert(props: {
+  question: string
+  onRate: (rating: LikertRating) => void
+}) {
+  const LABELS = {
+    '-2': 'Strongly disagree',
+    '-1': 'Disagree',
+    '0': 'Neutral',
+    '1': 'Agree',
+    '2': 'Strongly agree',
+  }
+  const ORDER = ['2', '1', '0', '-1', '-2']
+
   return (
     <div>
-      {props.question}
-      <div className="flex flex-row">
-        <div className="w-1/3">
-          <button className="p-4 m-4 text-lg bg-red-200">1</button>
-        </div>
-        <div className="w-1/3">
-          <button className="p-4 m-4 text-lg bg-red-200">2</button>
-        </div>
-        <div className="w-1/3">
-          <button className="p-4 m-4 text-lg bg-red-200">3</button>
-        </div>
+      <p className="mb-4">{props.question}</p>
+
+      <div className="flex flex-col gap-2">
+        {ORDER.map((key) => (
+          <button
+            key={key}
+            className="btn"
+            onClick={() => props.onRate(key as LikertRating)}
+          >
+            {LABELS[key as LikertRating]}
+          </button>
+        ))}
       </div>
     </div>
-  );
+  )
 }

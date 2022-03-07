@@ -1,0 +1,17 @@
+export const INITIAL_QUESTIONS = [
+  'I want to have children.',
+  'I am a morning person.',
+  'I am a messy roommate.',
+  'Social situations are energizing.',
+  'I am usually at peace.',
+  'I have a soft heart.',
+  'I am good at keeping my word.',
+  'It is more important to be honest than kind.',
+  'I have a close relationship with God.',
+  'I would rather be cruel than stupid.',
+  'I prefer giving over recieving pleasure.',
+  'Astrology is important to me.',
+  'I am good at showing up on time.',
+  'I am usually happy.',
+  'I am a whimsical person.',
+]

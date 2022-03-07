@@ -1,6 +1,7 @@
-import { User } from "@supabase/supabase-js"
-import { useEffect, useState } from "react"
-import { supabase } from "../lib/supabase"
+import { User } from '@supabase/supabase-js'
+import { useEffect, useState } from 'react'
+import { getUser, listenForUser, supabase } from '../lib/supabase'
+import { User as ShapelyUser } from '../lib/types'
 
 export function useUser() {
   const [user, setUser] = useState<User | null | undefined>()
@@ -15,6 +16,19 @@ export function useUser() {
 
     return data?.unsubscribe
   }, [])
+
+  return user
+}
+
+export function useShapelyUser(id?: string) {
+  const [user, setUser] = useState<ShapelyUser | null | undefined>()
+
+  useEffect(() => {
+    if (id) {
+      getUser(id).then((user) => setUser(user))
+      listenForUser(id, setUser)
+    }
+  }, [id])
 
   return user
 }

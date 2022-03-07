@@ -1,4 +1,5 @@
 import { createClient, User } from '@supabase/supabase-js'
+import { User as ShapelyUser } from './types'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
@@ -26,13 +27,24 @@ export async function createUser(user: User) {
   })
 }
 
+export async function updateUser(user: ShapelyUser) {
+  const { data, error } = await supabase
+    .from(`users`)
+    .update({
+      datablob: user.datablob,
+    })
+    .eq('id', user.id)
+  console.log('updateUser', data, error)
+}
+
 export async function getUser(userId: string) {
   const { data, error } = await supabase
     .from('users')
     .select()
     .eq('id', userId)
     .single()
-  return data
+  console.log('getUser', data, error)
+  return data as ShapelyUser
 }
 
 export function listenForUser(userId: string, setUser: (user: any) => void) {
