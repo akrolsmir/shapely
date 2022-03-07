@@ -18,16 +18,21 @@ export async function signOut() {
 }
 
 export async function createUser(user: User) {
-  await supabase.from('users').insert({
+  const { data, error } = await supabase.from('users').insert({
     id: user.id,
     name: user.user_metadata.name,
-    createTime: new Date(user.created_at).getTime(),
-    answers: {},
+    createdTime: new Date(user.created_at).getTime(),
+    datablob: {},
   })
 }
 
 export async function getUser(userId: string) {
-  return supabase.from('users').select().eq('id', userId).single()
+  const { data, error } = await supabase
+    .from('users')
+    .select()
+    .eq('id', userId)
+    .single()
+  return data
 }
 
 export function listenForUser(userId: string, setUser: (user: any) => void) {
